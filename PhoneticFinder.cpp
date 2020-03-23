@@ -1,42 +1,135 @@
+
+/**
+ * An example of how to write unit tests.
+ * Use this as a basis to build a more complete Test.cpp file.
+ * 
+ * IMPORTANT: Please write more tests - the tests here are only for example and are not complete.
+ *
+ * AUTHORS: Ariel Yechezkel , or laharty
+ * 
+ * Date: 2020-02
+ */
+
+
 #include <iostream>
-#include<stdio.h>
-#include<string.h>
-#include <algorithm>
+#include "PhoneticFinder.hpp"
+#include <stdexcept>
+#include <string>
+#include <bits/stdc++.h> 
+#include <exception>
 using namespace std;
-string find(string text, string word)
+
+namespace phonetic
 {
-//to lower case first
-// for_each(s.begin(), s.end(), [](char & c) {
-// 		c = ::tolower(c);
-// 	});open for me the configuration
-int index=0,count=0;
-while (index<text.length()){
-    string s1="";
-    while(text.at(index)!='\b'){
-    s1+=text.at(index);
-    index++;
+    string find(string text, string word)
+    {
+        text = text + " ";
+        string subWord = "";
+        string finalString = "";
+        for (auto x : text)
+        {
+            if (x == ' ')
+            {
+                if (word.size() == subWord.size())
+                {
+                    int count = 0;
+                    for (int i = 0; i < subWord.size(); i++)
+                    {
+                        //same latter
+                        if (subWord.at(i) == word.at(i))
+                        {
+                            count++;
+                        }
+                        //small or big latter
+                        else if (subWord.at(i) == word.at(i) + 32 || subWord.at(i) == word.at(i) - 32)
+                        {
+                            count++;
+                        }
+                        //all of the mistakes
+                        else if (subWord.at(i) == 'w' || subWord.at(i) == 'v' || subWord.at(i) == 'W' || subWord.at(i) == 'V')
+                        {
+                            if (word.at(i) == 'w' || word.at(i) == 'v' || word.at(i) == 'W' || word.at(i) == 'V')
+                            {
+                                count++;
+                            }
+                        }
+                        else if (subWord.at(i) == 'p' || subWord.at(i) == 'f' || subWord.at(i) == 'b' || subWord.at(i) == 'P' || subWord.at(i) == 'F' || subWord.at(i) == 'B')
+                        {
+                            if (word.at(i) == 'p' || word.at(i) == 'f' || word.at(i) == 'b' || word.at(i) == 'P' || word.at(i) == 'F' || word.at(i) == 'B')
+                            {
+                                count++;
+                            }
+                        }
+                        else if (subWord.at(i) == 'j' || subWord.at(i) == 'g' || subWord.at(i) == 'J' || subWord.at(i) == 'G')
+                        {
+                            if (word.at(i) == 'j' || word.at(i) == 'g' || word.at(i) == 'J' || word.at(i) == 'G')
+                            {
+                                count++;
+                            }
+                        }
+                        else if (subWord.at(i) == 'q' || subWord.at(i) == 'k' || subWord.at(i) == 'c' || subWord.at(i) == 'Q' || subWord.at(i) == 'K' || subWord.at(i) == 'C')
+                        {
+                            if (word.at(i) == 'q' || word.at(i) == 'k' || word.at(i) == 'c' || word.at(i) == 'Q' || word.at(i) == 'K' || word.at(i) == 'C')
+                            {
+                                count++;
+                            }
+                        }
+                        else if (subWord.at(i) == 'z' || subWord.at(i) == 's' || subWord.at(i) == 'Z' || subWord.at(i) == 'S')
+                        {
+                            if (word.at(i) == 'z' || word.at(i) == 's' || word.at(i) == 'Z' || word.at(i) == 'S')
+                            {
+                                count++;
+                            }
+                        }
+                        else if (subWord.at(i) == 't' || subWord.at(i) == 'd' || subWord.at(i) == 'T' || subWord.at(i) == 'D')
+                        {
+                            if (word.at(i) == 't' || word.at(i) == 'd' || word.at(i) == 'T' || word.at(i) == 'D')
+                            {
+                                count++;
+                            }
+                        }
+                        else if (subWord.at(i) == 'u' || subWord.at(i) == 'o' || subWord.at(i) == 'U' || subWord.at(i) == 'O')
+                        {
+                            if (word.at(i) == 'u' || word.at(i) == 'o' || word.at(i) == 'U' || word.at(i) == 'O')
+                            {
+                                count++;
+                            }
+                        }
+                        else if (subWord.at(i) == 'y' || subWord.at(i) == 'i' || subWord.at(i) == 'Y' || subWord.at(i) == 'I')
+                        {
+                            if (word.at(i) == 'y' || word.at(i) == 'i' || word.at(i) == 'Y' || word.at(i) == 'I')
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                    if (count == subWord.size())
+                    {
+                        finalString.assign(word);
+                        return finalString;
+                    }
+                }
+                subWord = "";
+            }
+            else
+            {
+                subWord = subWord + x;
+            }
+        }
+        if (finalString == "")
+        {
+            throw out_of_range{"Did not find the word " + word + " in the text"};
+        }
+        return finalString;
     }
-    for( int i=0; i<s1.length(); i++){
-       if(((text.at(i)=='d'||text.at(i)=='t')&&(s1.at(i)=='d'||s1.at(i)=='t'))||
-          ((text.at(i)=='v'||text.at(i)=='w')&&(s1.at(i)=='v'||s1.at(i)=='w'))||
-          ((text.at(i)=='b'||text.at(i)=='f'||text.at(i)=='p')&&(s1.at(i)=='b'||s1.at(i)=='f'||s1.at(i)=='p'))||
-        ((text.at(i)=='g'||text.at(i)=='j')&&(s1.at(i)=='g'||s1.at(i)=='j'))||
-           ((text.at(i)=='c'||text.at(i)=='k'||text.at(i)=='q')&&(s1.at(i)=='c'||s1.at(i)=='k'||s1.at(i)=='q'))||
-          ((text.at(i)=='s'||text.at(i)=='z')&&(s1.at(i)=='d'||s1.at(i)=='t'))||
-        ((text.at(i)=='0'||text.at(i)=='u')&&(s1.at(i)=='o'||s1.at(i)=='u'))||
-            ((text.at(i)=='i'||text.at(i)=='y')&&(s1.at(i)=='i'||s1.at(i)=='y')))
-            count++;
-    }
-    index++;
-    if(count==s1.length())
-    return s1;
-    count=0;
-}
 }
 
-int main(){
-string text="dond vorri be haffy";
- cout << find(text,"dont");
-return 0;
 
-}
+
+
+
+
+
+
+
+
