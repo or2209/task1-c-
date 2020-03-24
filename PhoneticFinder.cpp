@@ -30,6 +30,7 @@ namespace phonetic
         {
             if (x == ' ')
             {
+                // cout << subWord << endl;
                 if (word.size() == subWord.size())
                 {
                     int count = 0;
@@ -105,7 +106,7 @@ namespace phonetic
                     }
                     if (count == subWord.size())
                     {
-                        finalString.assign(word);
+                        finalString.assign(subWord); 
                         return finalString;
                     }
                 }
