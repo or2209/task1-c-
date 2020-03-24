@@ -1,8 +1,4 @@
 /**
- * An example of how to write unit tests.
- * Use this as a basis to build a more complete Test.cpp file.
- * 
- * IMPORTANT: Please write more tests - the tests here are only for example and are not complete.
  *
  * AUTHORS: Ariel Yechezkel , or laharty
  * 
@@ -77,8 +73,8 @@ TEST_CASE("Test replacement of b and p and f")
     CHECK(find(text, "poy") == string("boy"));
     CHECK(find(text, "PoY") == string("boy"));
     CHECK(find(text, "Boy") == string("boy"));
-    CHECK(find(text, "fow") == string("boy"));
-    CHECK(find(text, "FoW") == string("boy"));
+    CHECK(find(text, "foy") == string("boy"));
+    CHECK(find(text, "FoY") == string("boy"));
     CHECK(find(text, "balace") == string("palace"));
     CHECK(find(text, "BaLace") == string("palace"));
     CHECK(find(text, "falace") == string("palace"));
@@ -185,22 +181,22 @@ TEST_CASE("Test replacement of s and z ")
 TEST_CASE("Test replacement of s and z ")
 {
     string text = "Dont mess with Zohan";
-    CHECK(find(text, "tont") == string("dont"));
+    CHECK(find(text, "tont") == string("Dont"));
     CHECK(find(text, "vith") == string("with"));
-    CHECK(find(text, "dunt") == string("dont"));
+    CHECK(find(text, "dunt") == string("Dont"));
     CHECK(find(text, "widh") == string("with"));
     CHECK(find(text, "mezz") == string("mess"));
     CHECK(find(text, "wyth") == string("with"));
-    CHECK(find(text, "sohan") == string("zohan"));
-    CHECK(find(text, "zuhan") == string("zohan"));
-    CHECK(find(text, "donD") == string("dont"));
-    CHECK(find(text, "Tont") == string("dont"));
+    CHECK(find(text, "sohan") == string("Zohan"));
+    CHECK(find(text, "zuhan") == string("Zohan"));
+    CHECK(find(text, "donD") == string("Dont"));
+    CHECK(find(text, "Tont") == string("Dont"));
     CHECK(find(text, "WitH") == string("with"));
-    CHECK(find(text, "dUnt") == string("dont"));
+    CHECK(find(text, "dUnt") == string("Dont"));
     CHECK(find(text, "widH") == string("with"));
     CHECK(find(text, "meZz") == string("mess"));
     CHECK(find(text, "wYth") == string("with"));
-    CHECK(find(text, "soHan") == string("zohan"));
-    CHECK(find(text, "zuhAN") == string("zohan"));
-    CHECK(find(text, "DonD") == string("dont"));
+    CHECK(find(text, "soHan") == string("Zohan"));
+    CHECK(find(text, "zuhAN") == string("Zohan"));
+    CHECK(find(text, "DonD") == string("Dont"));
 }

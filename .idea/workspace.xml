@@ -10,10 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="190a3bec-54fd-4315-9f98-dc37f35814f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PhoneticFinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PhoneticFinder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PhoneticFinder.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/PhoneticFinder.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/‏‏task c++ - קיצור דרך.lnk" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +80,7 @@
       <workItem from="1584902460406" duration="336000" />
       <workItem from="1584964774006" duration="223000" />
       <workItem from="1584965013873" duration="8000" />
-      <workItem from="1584965054890" duration="4343000" />
+      <workItem from="1584965054890" duration="6473000" />
     </task>
     <servers />
   </component>
