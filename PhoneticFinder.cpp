@@ -26,6 +26,8 @@ namespace phonetic
         text = text + " ";
         string subWord = "";
         string finalString = "";
+        if(text=="")
+        throw out_of_range{"you insert empty word!!"};
         for (auto x : text)
         {
             if (x == ' ')
