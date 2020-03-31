@@ -23,11 +23,12 @@ namespace phonetic
 {
     string find(string text, string word)
     {
+        if(text==""){
+          throw out_of_range{"you insert empty word!!"};
+        }
         text = text + " ";
         string subWord = "";
         string finalString = "";
-        if(text=="")
-        throw out_of_range{"you insert empty word!!"};
         for (auto x : text)
         {
             if (x == ' ')
